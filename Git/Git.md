@@ -44,3 +44,22 @@ Tag - a ref to a specific commit, often used for marking releases
 `git diff --staged` - compare staged vs last commit
 `git blame <file>` - show who last changed each line
 `git reflog` - view local HEAD history (even deleted branches) 
+
+#### Git vs Github
+
+Git (CLI)
+GitHub (Platform)
+
+Git
+- version control tool
+- locally on your computer
+- tracks and manage code history on the CLI
+- allows offline use
+- open source
+
+Github
+- Git repo hosting and collaboration
+- on the web (cloud)
+- Share code, manage code, open PRs, collaborate on the GUI.
+- only works online
+- Owned by Microsoft
