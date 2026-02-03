@@ -34,3 +34,13 @@ Tag - a ref to a specific commit, often used for marking releases
 `git rm` - remove files
 `git mv` - rename files
 `git restore` - undo file changes
+
+#### Viewing History
+
+`git log` - see commit history
+`git log --online --graph` - visual summary
+`git show <commit>` - view a specific commit
+`git diff` - compare unstaged vs last commit
+`git diff --staged` - compare staged vs last commit
+`git blame <file>` - show who last changed each line
+`git reflog` - view local HEAD history (even deleted branches) 
