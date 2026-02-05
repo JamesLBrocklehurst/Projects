@@ -104,3 +104,93 @@ Rebase:
 Use Merge when - working collaboratively
 Use Rebase when - cleaning up your local history
 
+#### Git Stash & Pop
+
+git stash - temporarily save uncommited changes
+git stash list - view all stashes
+git stash apply - reapply latest stash
+git stash pop - reapply and delete the stash
+
+Use when switching branches mid-task
+Great for "I'm not ready to commit, but I need to move."
+
+#### Reset, Revert and Cherry-Pick
+
+git revert
+- creates a new commit that undoes another
+- safe for shared history
+- used in production
+
+git reset
+- move branch pointer backward
+- soft = keep changes
+- mixed = unstage
+- hard = nuke everything
+
+git cherry-pick
+- apply a single commit from another branch
+- useful for hotfixes or targeted changes
+
+#### Forks & Pull Requests
+
+Fork = your own copy of someone else's repo (on Github)
+Clone the forked repo to your local machine
+Make changes ---> push to your fork
+Open a Pull Request (PR) to propose your changes
+Used in open source and cross-team workflows
+Original repo owner can review, comment, and merge
+
+#### Collaborating Practices
+
+Use branches to isolate work
+Push to remote and open pull requests
+Assign reviewers, use Github's UI for comments
+Resolve conflicts before merge
+Use issues, projects, discussions to track work
+Keep commits focused and clean
+
+#### Git Workflow
+
+Dev pulls latest main or clones repo
+
+Create feature branch
+
+Work locally --> commit --> push branch
+
+Open PR --> review & merge
+
+Team syncs regularly via git pull --rebase or merge
+
+#### Trunk-Based Development
+
+- All devs commit to main or short-lived branches
+- Heavy CI/testing gates
+- Used in fast-moving orgs i.e Google or Meta
+
+#### Git Best Practices
+
+Commit Hygiene:
+
+- write good commit messages
+    - use squashing before merging PRs
+        - one logical change per commit
+            - avoid noisy merges or fixfixfinalfinal2
+
+Pre-Commit & Automation
+
+- run linters/tests before committing (pre-commit, Husky, tflint)
+- prevent broken code from entering the repo
+- hook into CI pipelines for formatting, testing and scanning
+
+Common Mistakes
+
+- forgetting to pull before pushing
+- force pushing to shared branches 
+- committing secrets
+- merging without review
+- not usng .gitignore properly
+
+Security & Secrets Hygiene
+
+- Do not commit secrets
+- Audit git logs
