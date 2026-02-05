@@ -88,3 +88,19 @@ git log --oneline --graph --all > compact, visual, full view
 Great for debugging merges and tracking branches
 
 Helps to see what is really happening under the hood.
+
+#### Rebase Vs Merge
+
+Merge:
+- Preserves history
+- Creates a new commit
+- Good for team workflows
+
+Rebase:
+- Rewrites history (linear)
+- No merge commits
+- Ideal for cleanup before PR
+
+Use Merge when - working collaboratively
+Use Rebase when - cleaning up your local history
+
