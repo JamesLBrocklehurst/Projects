@@ -72,3 +72,19 @@ git switch -c <branch> - modern version
 git switch <branch> - switch branches safely
 git branch -d <branch> - delete branch
 
+#### Merging
+
+Combine changes from one branch into another
+git merge <branch> - merge target into current branch
+Fast-forward vs recursive (true merge)
+May cause conflicts - manual resolution required
+
+#### Visualise Branches & Logs
+
+git log --oneline > gives compact commit view
+git log --graph > visual tree structure
+git log --oneline --graph --all > compact, visual, full view
+
+Great for debugging merges and tracking branches
+
+Helps to see what is really happening under the hood.
