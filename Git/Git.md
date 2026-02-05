@@ -63,3 +63,12 @@ Github
 - Share code, manage code, open PRs, collaborate on the GUI.
 - only works online
 - Owned by Microsoft
+
+#### Branching 101
+
+git branch - list/create branches
+git checkout -b <branch> - create & switch
+git switch -c <branch> - modern version
+git switch <branch> - switch branches safely
+git branch -d <branch> - delete branch
+
