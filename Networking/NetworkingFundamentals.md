@@ -159,7 +159,86 @@ Layer 2 - **Data Link**
 - Frames
 - Ethernet, PPP, Switch, Bridge
 
-Layer 1 - **Physcial**
+Layer 1 - **Physical**
 - Physical Structure
 - Coax, Fibre, Wireless, Hubs, Repeaters
 
+### ***Physical Layer***
+
+**Function**
+
+Transmits raw bit stream over a physcial medium
+
+**Components**
+
+Cables, switches and network interface cards
+
+### ***Data Link Layer***
+
+**Function**
+
+Provides node-to-node data transfer and detects erros that may occur in the Physical Layer. It ensure that data is transferred correctly between adjacent network nodes
+
+**Components**
+
+MAC Addresses, switches and bridges
+
+### ***Network Layer***
+
+**Function**
+
+Determines how data is sent to the recipient
+
+Manages packet forwarding including routing through intermediate routers
+
+**Components**
+
+IP addresses, routers
+
+### ***Transport Layer***
+
+**Function**
+
+Provides reliable data transfer services to the upper layers
+
+Segments and reassembles data
+
+**Components**
+
+TCP, UDP
+
+### ***Session Layer***
+
+**Function**
+
+Manages sessions between applications
+
+Establishes, maintains and terminates connections
+
+**Components**
+
+Session management protocols
+
+### ***Presentation Layer***
+
+**Function**
+
+Translates data between the application layer and the network
+
+Ensures data is in usable format
+
+**Components**
+
+Encryption, data formatting
+
+### ***Application Layer***
+
+**Function**
+
+Provides network services directly to applications
+
+End-user layer
+
+**Components**
+
+HTTP, FP, SMTP
