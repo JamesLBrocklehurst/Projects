@@ -242,3 +242,56 @@ End-user layer
 **Components**
 
 HTTP, FP, SMTP
+
+### TCP/IP Model Layers:
+
+Application layer --> HTTP, TLS, DNS
+
+Transport Layer --> TCP, UDP
+
+Internet Layer --> IP
+
+Network Access Layer --> Ethernet, Wireless LAN
+
+## DNS
+
+DNS - Domain Name System
+
+Definition:
+
+Translates domain names to IP addresses
+
+Role in Networking:
+
+Simplifies navigation on the internet
+
+Essential for accessing websites and services
+
+### DNS Components
+
+Name servers:
+
+Load DNS settings and configurations
+
+Can be authoritative or recursive
+
+Zone files:
+
+Store information about the domain
+
+Organised and readable format
+
+### Records
+
+Entries in a zone file with specific information
+
+Components: Record name, TTL, Class, Type, Data
+
+| Record | Descripton |
+|:-|:-|
+| A | Maps a domain name to an IPv4 address. |
+| AAAA | Maps a domain name to an IPv6 address. |
+| CNAME | Alias of one name to another. It allows you to point multiple domain names to the same IP address. |
+| MX | Specifies the mail server responsible for receiving email for the domain. |
+| TXT | Allows domain administrators to insert any text into DNS. Commonly used for verification purposes and to hold SPF (Sender Policy Framework) data.|
+
