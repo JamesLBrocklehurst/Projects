@@ -392,5 +392,25 @@ Dynamic NAT
 
 PAT (Port Address Translation)
 
-## Troubleshooting
+### Troubleshooting
+
+Common Network Issues
+- Connectivity Loss
+- Slow network performance
+- IP address conflicts
+- DNS resolution failures
+
+Identifying Symptoms
+
+Symptom: Devices can't access the network
+
+Steps to diagnose:
+- Check physical connections
+- Verify network configuration
+- Test with ping command
+
+Debugging Tools:
+- ping
+- traceroute
+- nslookup
 
