@@ -295,3 +295,102 @@ Components: Record name, TTL, Class, Type, Data
 | MX | Specifies the mail server responsible for receiving email for the domain. |
 | TXT | Allows domain administrators to insert any text into DNS. Commonly used for verification purposes and to hold SPF (Sender Policy Framework) data.|
 
+## Routing
+
+Definition - Process of determinging paths for data to travel across networks
+
+Importance of Routing - Ensures data reaches its destination efficiently. Fundamental for Internet functionality
+
+Routing Process:
+ - Routers determin the best path
+ - Use routing tables to make decisions
+
+ Key Components:
+ - Routers
+ - Routing tables
+
+### Static Vs Dynamic Routing
+
+Static:
+ - Manually configure routes
+ - Fixed paths set by network administrators
+ - Simple but not scalable
+
+Dynamic:
+ - Routes are automatically adjusted
+ - Uses routing protocols to find the best path
+ - Scalable and adaptable
+
+### Common Routing Protocols
+
+Routing Protocols:
+ 1. Automate route determination
+ 1. Enhance network efficiency
+ 1. Use algorithms that determine best paths
+ 1. Automate route updates 
+ 1. Improve network resilience
+
+OSPF:
+
+Open Shortest Path First
+
+BGP:
+
+Border Gateway Protocol
+
+## Subnetting
+
+- Dividing a network into smaller networks
+- Improves network management and efficiency
+
+### CIDR Notation
+Classless Inter-Domain Routing
+
+Format:
+IP_address/prefix_length
+
+Example:
+192.168.0.1/24
+
+### Binary
+
+Base-2 number system
+
+Uses 0 and 1
+
+### Calculating Subnets and Host ranges
+
+Subnet Masks: Defines network and host portions
+
+IPv4 Classes:
+
+Class A - 255.0.0.0
+
+Class B - 255.255.0.0
+
+Class C - 255.255.255.0
+
+### NAT
+
+Network Address Translation
+
+Translates private IP addresses to a public IP address
+
+Facilitates communication between internal network and the Internet
+
+NAT Process:
+
+- Internal devices use private IP addresses
+- Router translates private IP to public IP
+- Facilitates communication with external networks
+
+### Types of NAT
+
+Static NAT
+
+Dynamic NAT
+
+PAT (Port Address Translation)
+
+## Troubleshooting
+
