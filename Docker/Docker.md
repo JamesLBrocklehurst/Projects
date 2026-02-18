@@ -16,3 +16,9 @@ Containers vs Virtual Machines:
 | Consume more resources | Resource usage | Lightweight and efficient |
 | Strong isolation | Isolation | Shared kernel, less isolation |
 | Less portability | Portability | Highly portable across environments |
+
+Useful commands:
+`docker ps` - List running containers
+`docker ps -a` - List all containers (including stopped)
+`docker info` - Display system-wide information
+`docker --version` - Show Docker version information
