@@ -28,3 +28,4 @@ Useful commands:
 `copy` - Copy files from the host to the container
 `workdir` - Set the working directory for the container
 `command` - Specify the command to run when the container starts
+`cmd` - Similar to `command`, but allows for more complex commands and arguments
