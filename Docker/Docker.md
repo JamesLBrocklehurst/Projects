@@ -50,3 +50,8 @@ This network driver allows containers to share the host's network stack. Contain
 
 None Network:
 This network driver disables all networking for the container. Containers using the none network cannot communicate with other containers or the host.
+
+## Docker Compose
+
+Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define your application's services, networks, and volumes in a single YAML file, making it easier to manage and deploy your application.
+
