@@ -19,13 +19,34 @@ Containers vs Virtual Machines:
 
 Useful commands:
 `docker ps` - List running containers
+
 `docker ps -a` - List all containers (including stopped)
+
 `docker info` - Display system-wide information
+
 `docker --version` - Show Docker version information
+
 `from` - Specify the base image for a Dockerfile
+
 `run` - Run a command in a new container
+
 `build` - Build an image from a Dockerfile
+
 `copy` - Copy files from the host to the container
+
 `workdir` - Set the working directory for the container
+
 `command` - Specify the command to run when the container starts
+
 `cmd` - Similar to `command`, but allows for more complex commands and arguments
+
+## Docker Networking
+
+Bridge Network:
+The default network driver for Docker. It creates a private internal network on the host machine, allowing containers to communicate with each other and with the host.
+
+Host Network:
+This network driver allows containers to share the host's network stack. Containers using the host network can access the host's network interfaces directly, but they cannot communicate with other containers on the same host.
+
+None Network:
+This network driver disables all networking for the container. Containers using the none network cannot communicate with other containers or the host.
