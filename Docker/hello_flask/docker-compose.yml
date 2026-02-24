@@ -1,0 +1,16 @@
+
+services:
+  web:
+    build: . # This tells Docker Compose to build the image for the web service using the Dockerfile in the current directory.
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mydb
+
+  mydb:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+
+# `docker-compose up` will start both the web and db services, allowing the Flask application to connect to the MySQL database.
+# `docker-compose down` will stop and remove the containers, networks, and volumes created by `docker-compose up`.
