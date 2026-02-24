@@ -55,3 +55,22 @@ This network driver disables all networking for the container. Containers using 
 
 Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define your application's services, networks, and volumes in a single YAML file, making it easier to manage and deploy your application.
 
+Makes Development and Testing easier
+
+## Docker Registries 
+
+Stoarege and distribution system for Docker images. It allows you to share and distribute your Docker images with others.
+
+Key features of Docker Registries include:
+
+- Public Registries i.e docker hub
+
+- Private Registries i.e AWS ECR
+
+Importance in DevOps:
+
+Streamline development
+
+Enchance collaboration
+
+Ensure consistency across environments
