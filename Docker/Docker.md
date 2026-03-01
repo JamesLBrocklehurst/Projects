@@ -86,3 +86,21 @@ Streamline development
 Enchance collaboration
 
 Ensure consistency across environments
+
+## Kubernetes
+
+Always you to manage and orchestrate containerized applications at scale. It provides a platform for automating deployment, scaling, and operations of application containers across clusters of hosts.
+
+## Docker Swarm Vs Kubernetes
+
+|Docker Swarm| Vs |Kubernetes|
+|------------|----|----------|
+| Simpler to set up and use | Ease of Use | More complex, with a steeper learning curve |
+| No auto Scaling | Scaling | Supports auto-scaling of containers based on resource usage |
+| Good Community Support | Community Support | Larger and more active community, with more resources and tools available |
+| Easy to start a Cluster | Cluster Management | Provides more advanced features for managing clusters, such as rolling updates and self-healing. But it is difficult to start a cluster from scratch |
+| Limited to the Docker API's capabilties | API | More flexible and extensible, with a wider range of APIs and integrations available |
+
+Docker Swarm is easier to use and native to Docker, making it a good choice for smaller applications or teams that are already familiar with Docker. 
+
+Kubernetes, on the other hand, is more powerful and feature-rich, making it a better choice for larger applications or teams that require more advanced features and scalability (Enterprise level applications).
