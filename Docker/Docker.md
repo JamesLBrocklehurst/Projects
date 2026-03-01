@@ -40,6 +40,18 @@ Useful commands:
 
 `cmd` - Similar to `command`, but allows for more complex commands and arguments
 
+`docker images` - List all Docker images on the system
+
+`docker inspect <container_id>` - Display detailed information about a container
+
+`docker rmi <image_id>` - Remove a Docker image from the system, if the image is not being used by any containers.
+
+`docker system prune` - Remove all unused data, including stopped containers, unused networks, dangling images, and build cache.
+
+`docker stop <container_id>` - Stop a running container
+
+`docker rm <container_id>` - Remove a stopped container
+
 ## Docker Networking
 
 Bridge Network:
