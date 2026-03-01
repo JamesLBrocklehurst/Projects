@@ -30,3 +30,9 @@ CMD ["python", "app.py"]
 # `docker run -d --name myapp --network my-custom-network -p 5000:5000 hello-flask-mysql` to run the Flask app container and connect it to the MySQL container
 
 # `docker build -t hello-flask-mysql .` to build the Flask app image with MySQL client support
+
+# `docker build -t jlbrock/flask-mysql:v1 .` to build the image and tag it for pushing to Docker Hub.
+
+# `docker push jlbrock/flask-mysql:v1` to push the image to Docker Hub.
+
+# `docker pull jlbrock/flask-mysql:v1` to pull the image from Docker Hub on another machine.
