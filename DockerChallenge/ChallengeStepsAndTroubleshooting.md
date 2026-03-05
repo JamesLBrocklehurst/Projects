@@ -65,3 +65,48 @@ Then you need to update the docker-compose.yml file to set those environment var
 
 ## Bonus Solution: Load Balancing with nginx
 
+Firstly change "ports" in the docker-compose.yml file to "expose" for the web service:
+
+```yml
+    expose:
+      - "5000"
+```
+Next we need to add a new service for nginx in the docker-compose.yml file:
+
+```yml
+nginx:
+  image: nginx:latest
+  ports:
+    - "5000:5000"
+  volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf
+  depends_on:
+    - web
+```
+Finally we need to create the nginx.conf file to configure nginx to load balance between the two web containers:
+
+```nginx
+events {}
+
+http {
+    upstream flask_app {
+        server web:5000;
+    }
+
+    server {
+        listen 5000;
+        server_name _;
+
+        location / {
+            proxy_pass http://flask_app;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_http_version 1.1;
+            proxy_set_header Connection "";
+            proxy_buffering off;
+        }
+    }
+}
+```
