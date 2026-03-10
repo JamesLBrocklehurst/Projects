@@ -40,3 +40,26 @@
   - Virtual MFA device: A software-based MFA device that runs on a smartphone or other mobile device. It generates time-based one-time passwords (TOTP) that users can enter when prompted for MFA.
   - U2F security key: A hardware-based MFA device that uses the Universal 2nd Factor (U2F) standard. It typically connects to a computer via USB and provides an additional layer of security when users authenticate.
   - Hardware MFA device: A physical MFA device that generates one-time passwords (OTP) and is typically used in high-security environments. These devices can be purchased from AWS or third-party vendors.
+
+**Accessing AWS as a user**
+- AWS Management Console: Users can log in to the AWS Management Console using their IAM credentials (username and password) to access and manage AWS resources through a web-based interface.
+- AWS CLI (Command Line Interface): Users can use the AWS CLI to interact with AWS services from the command line. They need to configure their AWS CLI with their IAM credentials (access key ID and secret access key) to authenticate and perform operations on AWS resources.
+- AWS SDKs (Software Development Kits): Users can use AWS SDKs in various programming languages.
+- Access Keys: Users can generate access keys (access key ID and secret access key) for programmatic access to AWS services. These keys can be used with the AWS CLI, SDKs, or API calls to authenticate and perform operations on AWS resources. It is important to keep access keys secure and rotate them regularly to prevent unauthorized access. Do not share access keys with anyone.
+
+**IAM Roles for services**
+- IAM roles are used to grant permissions to AWS services to perform actions on your behalf. For example, you can create an IAM role that allows an EC2 instance to access an S3 bucket. When the EC2 instance assumes the role, it will have the permissions defined in the role's policy to access the S3 bucket.
+- To create an IAM role for a service, you can follow these steps:
+  1. Go to the IAM console and click on "Roles" in the left navigation pane.
+  2. Click on the "Create role" button.
+  3. Select the AWS service that you want to grant permissions to (e.g., EC2, Lambda, etc.).
+  4. Choose the specific use case for the service (e.g., EC2 instance, Lambda function, etc.).
+  5. Attach the necessary policies that define the permissions for the role.
+  6. Review and create the role.
+- Once the role is created, you can assign it to the appropriate AWS service (e.g., EC2 instance, Lambda function, etc.) to allow it to perform actions on your behalf based on the permissions defined in the role's policy.
+- It is important to follow the Principle of Least Privilege (POLP) when creating IAM roles for services. Only grant the permissions that are necessary for the service to perform its intended functions, and avoid granting excessive permissions that could lead to security risks.
+
+**IAM Security Tools**
+- IAM Credentials Report (account-level): Provides a report of all IAM users in the account, including their access keys, password status, and MFA status. This report can help you identify any security risks or compliance issues related to IAM users.
+- IAM Access Analyzer (account-level): Analyzes resource-based policies to identify any potential security risks or unintended access. It helps you understand who has access to your resources and whether that access is appropriate.
+- IAM Access Advisor (user-level): Provides information about the services that a user has accessed and the permissions that have been used. This can help you identify any unused permissions or potential security risks associated with a user's access.
