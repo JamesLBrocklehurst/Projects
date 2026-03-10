@@ -63,3 +63,14 @@
 - IAM Credentials Report (account-level): Provides a report of all IAM users in the account, including their access keys, password status, and MFA status. This report can help you identify any security risks or compliance issues related to IAM users.
 - IAM Access Analyzer (account-level): Analyzes resource-based policies to identify any potential security risks or unintended access. It helps you understand who has access to your resources and whether that access is appropriate.
 - IAM Access Advisor (user-level): Provides information about the services that a user has accessed and the permissions that have been used. This can help you identify any unused permissions or potential security risks associated with a user's access.
+
+**IAM Summary**
+Users - mapped to a physical user, has a password for AWS Console
+Groups - contains users only
+Policies - JSON document that outlines permissions for users or groups
+Roles - for EC2 instances or AWS services
+Security - MFA + Password policy
+AWS CLI - manage your AWS services using the command-line
+AWS SDK - manage your AWS services using a programming language
+Access Keys - access AWS using the CLI or SDK
+Audit - IAM Crendential Reports & IAM Access Advisor
