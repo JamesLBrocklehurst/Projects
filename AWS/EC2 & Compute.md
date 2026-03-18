@@ -20,5 +20,9 @@
     - General Purpose
     - Compute optimised 
     - Memory Optimisied 
+    - Storage Optimised
+    - Accelerated computing
+    - HPC (High performance computing) Optimised
+
 
 
