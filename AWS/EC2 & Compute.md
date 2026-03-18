@@ -16,4 +16,9 @@
     - Distributing load across multiple machines (ELB)
     - Scaling the services using an auto-scaling group (ASG)
 - Knowing EC2 is fundamential to understand how the Cloud works
+- EC2 Instances
+    - General Purpose
+    - Compute optimised 
+    - Memory Optimisied 
+
 
