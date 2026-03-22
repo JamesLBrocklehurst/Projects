@@ -165,4 +165,37 @@
         
         - ASG are free (you only pay for the underlying EC2 instances)
 
-    
+        - Attributes
+            - A Launch Template
+                - AMI + Instance Type
+                - EC2 user data
+                - EBS volumes
+                - Security groups
+                - SSH Key Pair
+                - IAM Roles for your EC2 instances
+                - Network + Subnet information
+                - Load Balancer information
+            - Min Size / Max Size / Initial Capacity
+            - Scaling Policies
+        
+        - Cloud Watch Alarms & Scaling
+            - It is possible to scale and ASG based on CloudWatch alarms
+            - An alarm monitors a metric (such as Average CPU, or a custom metric)
+            - Metrics such as Average CPU are computed for the overal ASG instacnes 
+            - Based on the alarm:
+                - We can create scale-out policies (increase the number of instances)
+                - We can create scale-in policies (decrease the number of instances)
+        
+        - Auto Scaling Groups - Scaling Policies
+            - Dynamic Scaling
+                - Target Tracking Scaling
+                    - Simple to set-up
+                    - Example: I want the average ASG CPU to stay around 40%
+                - Simple / Step Scaling
+                    - When a CloudWatch alarm is triggered (example CPU > 70%), then add 2 units
+                    - When a CloudWatch alarm is triggered (example CPU < 30%), then remove 1
+                - Scheduled Scaling
+                    - Anticipate a scalling based on known usage patterns
+                    - Example: increase the min capacity to 10 at 5pm on Fridays
+        
+        
