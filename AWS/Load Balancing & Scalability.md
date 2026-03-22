@@ -82,3 +82,87 @@
             - Operates at layer 3 (network layer) - IP Protocol
         - Recommended to use the newer generation load balancers as they provide more features
         - Some load balancers can be setup as internal (private) or external (public) ELBs
+
+    - Application Load Balancer
+        - Application load balancers is Layer 7 (HTTP)
+        - Load balancing to multiplt HTTP applications across machines (target groups)
+        - Load balancing to multiple applications on the same machines (ex: containers)
+        - Support for HTTP/2 and WebSocket
+        - Support redirects (from HTTP to HTTPS)
+        - Routing tables to different target groups
+        - Routing based on path in URL 
+        - Routing based on hostnmae in URL
+        - Routing based on query string, Headers 
+        - ALB are a great fit for micro services & container-based application (example: Docker & Amazon ECS)
+        - Has a port mapping feature to redirect to a dynamic port in ECS
+        - In comparison, we'd need multiple Class Load Balancer per application
+    
+    - Target Groups
+        - EC2 instances (can be managed by an Auto Scaling Group) - HTTP
+        - ECS task (managed by ECS itself) - HTTP
+        - Lambda funtions - HTTP request is translated into a JSON event
+        - IP Addresses - muse be private IPs
+        - ALB can route to multiple target groups
+        - Health checks are at the target group level
+
+    - Network Load Balancer
+        - Network load balancers (Layer 4) allow:
+            - Forward TCP & UDP traffic to your instances
+            - Handle millions of requests per seconds
+            - Less latency - 100ms (vs 400 ms for ALB)
+        - NLB has one static IP per AZ, and supports assigning Elastic IP (helpful for whitelisting specific IP)
+        - NLB are used for extreme performance, TCP or UDP traffic
+        - Not included in the AWS free tier
+    
+    - SSL/TLS
+        - An SSL Certificate allows traffic between your clients and your load balancer to be encrypted in transit (in-flight encryption)
+
+        - SSL refers to Secure Socket Layer, used to encrypt connections
+        - TLS refers to Transport Layer Security, which is a newer version
+        - These days, TLS certificates are mainuly used, but people still refer as SSL
+
+        - Public SSL certificates are issued by Certificate Authorities (CA)
+            - Comodo, Symantec, GoDaddy, GlobalSign, Digicert, Letsencrypt
+        
+        - SSL certificates have an expiration date (you set) and must be renewed
+
+    - SSL - Server Name Indication (SNI)
+        - SNI solves the problem of loading multiple SSL certificates onto one web server (to serve multiple websites)
+        - It's a newer protocol, and requires the client to indicate the hostname of the target server in the initial SSL handshake
+        - The server will then find the correct certificate, or return the default one
+
+    - Elastic Load Balancers - SSL Certificates
+        - Classic Load Balancer (v1)
+            - Support only one SSL certificate
+            - Must use multiple CLB for multiple hostname with multiple SSL certificates
+        - Applciation Load Balancer (v2)
+            - Supports multiple listner with multiple SSL certificates
+            - Uses server name indication (SNI) to make it work
+        - Network Load Balancer (v2)
+            - Supports multiple listners with multiple SSL certificates
+            - Uses server name indication (SNI) to make it work
+    
+    - Connection Draining
+        - Feature Naming
+            - Connection Draining - for CLB
+            - Deregistraion Delay - for ALB & NLB
+        - Time to complete in-flight requests while the instance is de-registering or unhealthy
+        - Stops sending new request to the EC2 instance which is de-registering
+        - Between 1 to 3600 seconds (default: 300 seconds)
+        - Can be disabled (set value to 0)
+        - Set to a low value if your requests are short
+
+    - Auto Scaling Groups
+        - In real-life the load on your website and application can change
+        - In the cloud, you can create and get rid of servers very quickly
+
+        - The goal of an Auto Scaling Group (ASG) is to:
+            - Scale out (add EC2 instances) to match an increased load
+            - Scale in (remove EC2 instances) to match a decreased load
+            - Ensure we have a minimum number of EC2 instances running
+            - Automatically register new instances to a load balancer
+            - Re-create an EC2 instance in case a previous one is terminated (ex: if unhealthy)
+        
+        - ASG are free (you only pay for the underlying EC2 instances)
+
+    
