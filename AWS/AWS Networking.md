@@ -99,3 +99,65 @@
         - Must not have overlapping CIDRs
         - VPC Peering connection is NOT transitive (must be established for each VPC that need to communicate with one another)
         - You must update route tables in each VPC's subnets to ensure EC2 instances can communicate with each other
+
+    - VPC Peering - Good to know
+        - You can create VPC Peering connection between VPCs in different AWS accounts/regions
+        - You can refernce a security group in a peered VPC (works croos accounts - same region)
+
+    - VPC Endpoints (AWS PrivateLink)
+        - Every AWS service is publicly exposed (public URL)
+        - VPC Endpoints (powered by AWS services using a private network instead of using the public Internet)
+        - They're redundant and scale horizontally 
+        - They remove the need of IGW, NATGW, to access AWS Services
+        - In case of issues:
+            - Check DNS Settings Resolution in your VPC
+            - Check Route Tables
+        
+    - Types of Endpoints
+        - Interface Endpoints (powered by PrivateLink)
+            - Provisions an ENI (private IP address) as an entry point (must attach a security group)
+            - Supports most AWS services
+            - $ per hour + $ per GB of data processed
+        - Gateway Endpoints
+            - Provisions a gateway and must be used as a target in a route table (does not use security groups)
+            - Supports both S3 and DynamoDB
+            - Free
+
+    - IPv6 in VPC
+        - IPv4 cannot be disabled for your VPC and subnets
+        - You can enable IPv6 (they're public IP addresses) to operate in dual-stack mode
+        - Your EC2 instances will get at least a private internal IPv4 and a public IPv6
+        - They can communicate using either IPv4 or IPv6 to the internet through an Internet Gateway
+
+    - IPv6 Troubleshooting
+        - IPv4 cannot be disabled for your VPC and subnets
+        - If you cannot launch an EC2 instance in your subnet
+            - It is not because it cannot acquire an IPv6
+            - It is becuase there are no available IPv4 in your subnet
+        - Solution: Create a new IPv4 CIDR in your subnet
+
+    - Egress-only Internet Gateway
+        - Used for IPv6 only
+        - (similar to a NAT Gateway but for IPv6)
+        - Allows instances in your VPC outbound connections over IPv6 while preventing the internet to initiate an IPv6 connection to your instances
+        - You must update the Route Tables
+
+    - VPC Summary
+        - CIDR - IP Range
+        - VPC - Virtual Private Cloud => we define list of IPv4 & IPv6 CIDR
+        - Subnets - tied to an AZ, we define a CIDR
+        - Internet Gateway - at the VPC level, private IPv4 & IPv6 Internet Access
+        - Route Tables - must be edited to add routes from subnets to IGW, VPC Peering Connections, VPC Endpoints etc
+        - Bastion Host - public EC2 instance to SSH into, that has SSH connectivity to EC2 instances in private subnets
+        - NAT Instances - gives Internet access to EC2 isntances in privte subnets, Old, must be setup in a public subnet, disable Source . Destination check flag
+        - NAT Gateway - managed by AWS, provides scalable Internet acces to private EC2 instances, when the target is an IPv4 address 
+        - NACL - stateless, subnet rules for inbound and outbound, do not forget Ephemeral Ports
+        - Security Groups - stateful, operate at the EC2 instance level
+        - VPC Peering - connect two VPC's with non overlapping CIDR, non-transitive
+        - VPC Endpoints - provides private access to AWS Services (S3, DynamoDB, CloudFormation, SSM) within a VPC
+        - AWS PrivateLink / VPC Endpoint Services
+            - Connect services privately from your service VPC to customers VPC
+            - Does not need VPC Peering, public Internet, NAT Gateway, Route Tables
+            - Must be used with Network Load Balancer & ENI
+        - Egress-only Internet Gateway - like a NAT Gateway, bu for IPv6 targets
+        - Transit Gateway - transitive peering connections for VPC, VPN & DX
