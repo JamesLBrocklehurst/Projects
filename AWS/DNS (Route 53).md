@@ -111,3 +111,59 @@
     - Use cases - load balancing between regions, testing new application versions
     - Assign a weight of 0 to a record to stop sending traffic to a resource
     - If all records have weight of 0, then all records will be returned equally
+
+- Routing Policies - Latency Based
+    - Redirect to the resource that has the least latency (closest to us)
+    - Super helpful when latency for users is a priority
+    - Latency is based on traffic between users and AWS Regions
+    - Germany users may be directed to the US (if that is the lowest latency)
+    - Can be associated with Health Checks (has a failover capability)
+
+- Health Checks
+    - HTTP Health Checks are only for public resources
+    - Health Check => Automated DNS Failover
+        - Health checks that monitor an endpoint (application, server, other AWS resource)
+        - Health checks that monitor other other health checks (Calculated Health Checks)
+        - Health checks that monitor CloudWatch Alarms (full control) - e.g - throttles of DynamoDB, alarms on RDS, custom metrics (helpful for private resources)
+    - Health checks are integrated with CW metrics
+
+- Routing Policies - Geolocation
+    - Different from Latency-based
+    - This routing is based on user location
+    - Specify location by Continent, Country or by US State (if there is overlapping the most precise location is selected)
+    - Should create a "Default" record (in case there is no match on location)
+    - Use cases: website localisation, restrict content distribution, load balancing
+    - Can be associated with Health Checks
+
+- Routing Policies - Geoproximity 
+    - Route traffic to your resources based on the geographic location of users resources 
+    - Ability to shift more traffic to resources based on te defined bias
+    - To change the size of the geographic region, specify bias values
+        - To expand (1 to 99) - more traffic to the resource
+        - To shrink (-1 to -99) - less traffic to the resource
+    - Resources can be 
+        - AWS resources (specify AWS region)
+        - Non-AWS resources (specify latitude and longitude)
+    - You must use Route 53 Traffic Flow
+
+- Routing Policies - IP based Routing
+    - Routing is based on clients' IP addresses
+    - You provide a list of CIDRs for your clients and the corresponding endpoints/locations (user-IP-to-endpoint mappings)
+    - Use cases - Optimise performance, reduce network costs
+    - Example - route end users from a particular ISP to a specific endpoint
+
+- Routing Policies - Multi Value
+    - Use when routing traffic to multiple resources
+    - Route 53 return multiple values/resources
+    - Can be associated with Health Checks (return only values for healthy reasons)
+    - Up to 8 healthly records are returned for each Multi-Value query
+    - Multi-Value is not a substitute for having an ELB
+
+- Domain Registar vs DNS Service
+
+    - You buy or register your domain with a Domain Registrar typically by paying annual charges (e.g, GoDaddy, Amazon Registrar Inc)
+    - The Domain Registrar usually provides you with a DNS service to manage your DNS records
+    - You can use another DNS service to manage your records
+    - Example - purchase the domain from GoDaddy and use Route 53 to manage your DNS records
+
+    
