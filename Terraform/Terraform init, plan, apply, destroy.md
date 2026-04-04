@@ -34,5 +34,5 @@
 - Terraform Destroy
 
     - Terraform destory comman is a way to destroy all remote objects managed by a particular Terraform configuration.
-
+    - Generates a destruction plan
     
