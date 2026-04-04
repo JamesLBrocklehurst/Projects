@@ -27,4 +27,12 @@
 
 - Terraform apply
 
+    - Applies terraform to your Infrastructure
+    - Generate an execution plan
+    - Will then update the Terraform state file
+
+- Terraform Destroy
+
+    - Terraform destory comman is a way to destroy all remote objects managed by a particular Terraform configuration.
+
     
